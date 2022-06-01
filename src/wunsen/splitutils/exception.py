@@ -1,0 +1,2 @@
+class NotAvailableSystem(Exception):
+    pass

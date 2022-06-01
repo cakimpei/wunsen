@@ -1,0 +1,1 @@
+from .ja_thapsap import ThapJa

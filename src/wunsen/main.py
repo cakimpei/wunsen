@@ -17,7 +17,7 @@ class ThapSap:
                     to use. Available system:
                     ja: 'ORS61' | ko: 'RI55' | vi: 'RI55'
         :key input: Specify input type
-                    ja: 'Hepburn-macron', 'Hepburn-no_diacritic' |
+                    ja: 'Hepburn-macron', 'Hepburn-no diacritic' |
                     ko: 'RR' | vi: 'VA'
         """
         if lang == 'ja':

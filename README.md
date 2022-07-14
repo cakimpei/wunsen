@@ -9,7 +9,7 @@ Currently support:
 - Korean (from Revised Romanization)
 - Vietnamese (Latin script)
 
-Demo here [https://huggingface.co/spaces/cakimpei/wunsen-demo](https://huggingface.co/spaces/cakimpei/wunsen-demo)
+Demo [here](https://wunsen.herokuapp.com/).
 
 ## Installation
 

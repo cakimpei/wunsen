@@ -91,7 +91,7 @@ thap_ko.thap("waengwaeng, maeum | waeng'waeng, ma'eum")
 
 #### Chinese Tone Sandhi
 
-For Standard Chinese, both Thai-ization systems specify that we should apply third tone sandhi rule to the Thai result. Wunsen will automatically apply it, but you can turn it off.
+For Standard Chinese, both transliteration systems specify that we should apply third tone sandhi rule to the Thai result. Wunsen will automatically apply it, but you can turn it off.
 
 ```python
 thap_zh_no_sandhi = ThapSap('zh', option={'sandhi': False})

@@ -1,6 +1,8 @@
 # Wunsen
 
-Wunsen provides 'thai-ization' of different languages.
+Wunsen transliterates/transcribes from other languages into Thai.
+
+วุ้นเส้นสามารถทับศัพท์จากภาษาต่างๆ มาเป็นภาษาไทย
 
 Currently support:
 
@@ -68,6 +70,10 @@ There might be some differences between Wunsen result and the intended result fr
 - Japanese => หลักเกณฑ์การทับศัพท์ภาษาญี่ปุ่น (สำนักงานราชบัณฑิตยสภา พ.ศ. 2561) 'ORS61'
 - Korean => หลักเกณฑ์การทับศัพท์ภาษาเกาหลี (ราชบัณฑิตยสถาน พ.ศ. 2555) 'RI55'
 - Vietnamese => หลักเกณฑ์การทับศัพท์ภาษาเวียดนาม (ราชบัณฑิตยสถาน พ.ศ. 2555) 'RI55'
+
+Wunsen is not affiliated with proposers of the above transliteration systems.
+
+วุ้นเส้นไม่มีส่วนเกี่ยวข้องกับผู้กำหนดแนวทางการทับศัพท์แต่อย่างใด
 
 ### Notes
 

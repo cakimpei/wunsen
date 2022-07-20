@@ -166,6 +166,104 @@ ORS61_EX_NO_DIACRITIC = {
     # Ishii (Ishi-i)
 }
 
+RI35_EXAMPLE = {
+    'obi': 'โอะบิ',
+    'konbanwa': 'คมบังวะ',
+    'chīsai': 'ชีซะอิ',
+    'konnichiwa': 'คนนิชิวะ',
+    'denwa': 'เด็งวะ',
+    'Yamada': 'ยะมะดะ',
+    'Fujisan': 'ฟุจิซัง',
+    'fune': 'ฟุเนะ',
+    'ginkō': 'กิงโก',
+    'arigatō': 'อะริงะโต',
+    'hashi': 'ฮะชิ',
+    'Hiroshima': 'ฮิโระชิมะ',
+    'kaji': 'คะจิ',
+    'kao': 'คะโอะ',
+    'niku': 'นิกุ',
+    'gakkō': 'กักโก',
+    'mado': 'มะโดะ',
+    'Nagoya': 'นะโงะยะ',
+    'konnichiwa': 'คนนิชิวะ',
+    'pen': 'เพ็ง',
+    'tenpura': 'เท็มปุระ',
+    'Nippon': 'นิปปง',
+    'ringo': 'ริงโงะ',
+    'sakana': 'ซะกะนะ',
+    'sashimi': 'ซะชิมิ',
+    'kissaten': 'คิสซะเต็ง',
+    'zasshi': 'ซัสชิ',
+    'te': 'เทะ',
+    'migite': 'มิงิเตะ',
+    'itchi': 'อิตชิ',
+    'tsukue': 'สึกุเอะ',
+    'mittsu': 'มิตสึ',
+    'watashi': 'วะตะชิ',
+    'yama': 'ยะมะ',
+    'mizu': 'มิซุ',
+
+    'yama': 'ยะมะ',
+    'sakura': 'ซะกุระ',
+    'gakkō': 'กักโก',
+    'san': 'ซัง',
+    'okāsan': 'โอะกาซัง',
+    'obāsan': 'โอะบาซัง',
+    'ike': 'อิเกะ',
+    'fune': 'ฟุเนะ',
+    'denwa': 'เด็งวะ',
+    'sensei': 'เซ็นเซ',
+    'ē': 'เอ',
+    'onēsan': 'โอะเนซัง',
+    'sensei': 'เซ็นเซ',
+    'kin': 'คิง',
+    'kaki': 'คะกิ',
+    'hashi': 'ฮะชิ',
+    'onīsan': 'โอะนีซัง',
+    'oishī': 'โอะอิชี',
+    'ocha': 'โอะชะ',
+    'kome': 'โคะเมะ',
+    'Nippon': 'นิปปง',
+    'konnichiwa': 'คนนิชิวะ',
+    'otōsan': 'โอะโตซัง',
+    'sayōnara': 'ซะโยนะระ',
+    'shinbun': 'ชิมบุง',
+    'isu': 'อิซุ',
+    'Suzuki': 'ซุซุกิ',
+    'jūyō': 'จูโย',
+    'jūsho': 'จูโชะ',
+    'kyaku': 'เคียะกุ',
+    'hyaku': 'เฮียะกุ',
+    'nyānyā': 'เนียเนีย',
+    'ryokō': 'เรียวโก',
+    'byōin': 'เบียวอิง',
+    'ryōri': 'เรียวริ',
+    'kyu': 'คิว',
+    'kyūkō': 'คีวโก'
+}
+
+RI35_EX_NO_DIACRITIC = {
+    'chiisai': 'ชีซะอิ',
+    'ginkoo': 'กิงโก',
+    'arigatoo': 'อะริงะโต',
+    'gakkoo': 'กักโก',
+    'okaasan': 'โอะกาซัง',
+    'obaasan': 'โอะบาซัง',
+    'ee': 'เอ',
+    'oneesan': 'โอะเนซัง',
+    'oniisan': 'โอะนีซัง',
+    'oishii': 'โอะอิชี',
+    'otoosan': 'โอะโตซัง',
+    'sayoonara': 'ซะโยนะระ',
+    'juuyoo': 'จูโย',
+    'juusho': 'จูโชะ',
+    'nyaanyaa': 'เนียเนีย',
+    'ryokoo': 'เรียวโก',
+    'byooin': 'เบียวอิง',
+    'ryoori': 'เรียวริ',
+    'kyuukoo': 'คีวโก'
+}
+
 class TestSpellWord(unittest.TestCase):
 
     def test_general(self):
@@ -182,6 +280,16 @@ class TestSpellWord(unittest.TestCase):
         thap_sap = ThapSap('ja', input='Hepburn-no diacritic')
         for case in ORS61_EX_NO_DIACRITIC:
             self.assertEqual(thap_sap.thap(case), ORS61_EX_NO_DIACRITIC[case])
+
+    def test_ri35_example(self):
+        thap_sap = ThapSap('ja', system='RI35')
+        for case in RI35_EXAMPLE:
+            self.assertEqual(thap_sap.thap(case), RI35_EXAMPLE[case])
+
+    def test_ri35_ex_no_diacritic(self):
+        thap_sap = ThapSap('ja', system='RI35', input='Hepburn-no diacritic')
+        for case in RI35_EX_NO_DIACRITIC:
+            self.assertEqual(thap_sap.thap(case), RI35_EX_NO_DIACRITIC[case])
 
 if __name__ == '__main__':
     unittest.main()

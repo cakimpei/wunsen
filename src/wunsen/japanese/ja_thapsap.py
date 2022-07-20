@@ -6,9 +6,12 @@ from khanaa import SpellWord
 
 from wunsen.splitutils.splitter import SplitSyl, NotInDict
 from wunsen.splitutils.exception import NotAvailableSystem
-from .ja_mapping import ORS61, ORS61_NO_DIACRITIC
+from .ja_mapping import ORS61, ORS61_NO_DIACRITIC, RI35, RI35_NO_DIACRITIC
 
-class JaRs61:
+class JaOrs61:
+
+    coda_ng = ['g', 'k', 'h', 'f', 'w', 'y']
+    coda_m = ['b', 'm', 'p']
 
     def __init__(self, input: str) -> None:
         self.ja_dict = ORS61
@@ -51,6 +54,7 @@ class JaRs61:
                     and new_syl[2] == ''
                     and old_syl[index+1][0] == 'ts'):
                 new_syl[2] = 't'
+            # no coda for these vowels
             if (new_syl[1] in ['yo', 'yoo', 'you', 'yu', 'yuu', 'yō', 'yū']
                     and new_syl[2] != ''):
                 new_syl[2] = ''
@@ -77,11 +81,14 @@ class JaRs61:
                 vowel = 'อือ'
         else:
             vowel = self.ja_dict['vowel'][syl[1]]
-            if (syl[1] in ['a', 'e', 'o', 'u']
-                    and syl[2] == ''
-                    and index != self.last_syl_index):
-                self.pref.update({'vowel_length': 'long'})
+            self.shorten_vowel(index, syl)
         return vowel
+    
+    def shorten_vowel(self, index: int, syl: List[str]) -> None:
+        if (syl[1] in ['a', 'e', 'o', 'u']
+                and syl[2] == ''
+                and index != self.last_syl_index):
+            self.pref.update({'vowel_length': 'long'})
 
     def select_coda(self, index: int, syl: List[str]) -> str:
         if syl[2] == '':
@@ -109,12 +116,28 @@ class JaRs61:
         next_onset = self.split[index+1][0]
         if next_onset == '':
             coda = 'ง'
-        elif next_onset in ['g', 'k', 'h', 'f', 'w', 'y']:
+        elif next_onset in self.coda_ng:
             coda = 'ง'
-        elif next_onset in ['b', 'm', 'p']:
+        elif next_onset in self.coda_m:
             coda = 'ม'
         else:
             coda = self.ja_dict['coda'][syl[2]]
+        return coda
+
+class JaRi35(JaOrs61):
+
+    coda_ng = ['g', 'k', 'h', 'f', 'w']
+
+    def __init__(self, input: str) -> None:
+        self.ja_dict = RI35
+        if input == 'Hepburn-no diacritic':
+            self.ja_dict = RI35_NO_DIACRITIC
+
+    def shorten_vowel(self, index: int, syl: List[str]) -> None:
+        pass
+
+    def select_coda_s(self, index: int, syl: List[str]) -> str:
+        coda = self.ja_dict['coda'][syl[2]]
         return coda
 
 class ThapJa:
@@ -127,6 +150,7 @@ class ThapJa:
         :param system: Select thapsap system.
             - 'ORS61' for the Office of the Royal Society (2018/2561)
             system
+            - 'RI35' for the Royal Institute (1992/2535) system
 
         :param input: Select input type.
             - 'Hepburn-macron' for Hepburn romanization with macron
@@ -135,7 +159,9 @@ class ThapJa:
             without diacritic (ex. arigatou)
         """
         if system == 'ORS61':
-            self.transcript = JaRs61(input)
+            self.transcript = JaOrs61(input)
+        elif system == 'RI35':
+            self.transcript = JaRi35(input)
         else:
             raise NotAvailableSystem
 

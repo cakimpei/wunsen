@@ -17,7 +17,7 @@ class ThapSap:
         
         :key str system: Specify system of transcription/
                     transliteration to use. Available system:
-                    ja: 'ORS61' | ko: 'RI55' | vi: 'RI55' |
+                    ja: 'ORS61', 'RI35' | ko: 'RI55' | vi: 'RI55' |
                     zh: 'RI49', 'THC43'
         :key str input: Specify input type
                     ja: 'Hepburn-macron', 'Hepburn-no diacritic' |

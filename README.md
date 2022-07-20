@@ -6,9 +6,9 @@ Wunsen transliterates/transcribes from other languages into Thai.
 
 Currently support:
 
-- Standard Chinese (from Hanyu Pinyin)
 - Japanese (from Hepburn romanization)
 - Korean (from Revised Romanization)
+- Mandarin (from Hanyu Pinyin)
 - Vietnamese (Latin script)
 
 Demo [here](https://wunsen.herokuapp.com/).
@@ -30,15 +30,6 @@ pip install wunsen
 ```python
 from wunsen import ThapSap
 
-# Chinese (Pinyin with tone diacritics is not supported yet.)
-thap_zh = ThapSap('zh', system='RI49')
-thap_zh.thap('ni3 hao3')
-# => 'หนี ห่าว'
-
-thap_zh = ThapSap('zh', system='THC43')
-thap_zh.thap('ni3 hao3')
-# => 'หนี เห่า'
-
 # Japanese
 thap_ja = ThapSap('ja')
 thap_ja.thap('ohayō')
@@ -54,6 +45,15 @@ thap_ko = ThapSap('ko')
 thap_ko.thap('annyeonghaseyo')
 # => 'อันนย็องฮาเซโย'
 
+# Mandarin (Pinyin with tone diacritics is not supported yet.)
+thap_zh = ThapSap('zh', system='RI49')
+thap_zh.thap('ni3 hao3')
+# => 'หนี ห่าว'
+
+thap_zh = ThapSap('zh', system='THC43')
+thap_zh.thap('ni3 hao3')
+# => 'หนี เห่า'
+
 # Vietnamese
 thap_vi = ThapSap('vi')
 thap_vi.thap('xin chào')
@@ -64,11 +64,13 @@ thap_vi.thap('xin chào')
 
 There might be some differences between Wunsen result and the intended result from the actual system, so please review the results.
 
-- Chinese =>
+- Japanese =>
+    - หลักเกณฑ์การทับศัพท์ภาษาญี่ปุ่น (สำนักงานราชบัณฑิตยสภา พ.ศ. 2561) 'ORS61'
+    - หลักเกณฑ์การทับศัพท์ภาษาญี่ปุ่น (ราชบัณฑิตยสถาน พ.ศ. 2535) 'RI35'
+- Korean => หลักเกณฑ์การทับศัพท์ภาษาเกาหลี (ราชบัณฑิตยสถาน พ.ศ. 2555) 'RI55'
+- Mandarin =>
     - หลักเกณฑ์การทับศัพท์ภาษาจีน (ราชบัณฑิตยสถาน พ.ศ. 2549) 'RI49'
     - เกณฑ์การถ่ายทอดเสียงภาษาจีนแมนดารินด้วยอักขรวิธีไทย (คณะกรรมการสืบค้นประวัติศาสตร์ไทยในเอกสารภาษาจีน พ.ศ. 2543) 'THC43'
-- Japanese => หลักเกณฑ์การทับศัพท์ภาษาญี่ปุ่น (สำนักงานราชบัณฑิตยสภา พ.ศ. 2561) 'ORS61'
-- Korean => หลักเกณฑ์การทับศัพท์ภาษาเกาหลี (ราชบัณฑิตยสถาน พ.ศ. 2555) 'RI55'
 - Vietnamese => หลักเกณฑ์การทับศัพท์ภาษาเวียดนาม (ราชบัณฑิตยสถาน พ.ศ. 2555) 'RI55'
 
 Wunsen is not affiliated with proposers of the above transliteration systems.

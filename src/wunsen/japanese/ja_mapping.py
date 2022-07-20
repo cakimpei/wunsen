@@ -58,8 +58,7 @@ ORS61 = {
     }
 }
 
-ORS61_NO_DIACRITIC = deepcopy(ORS61)
-ORS61_NO_DIACRITIC['vowel'].update({
+NO_DIACRITIC = {
     'aa': 'อา',
     'ee': 'เอ',
     'ii': 'อี',
@@ -70,4 +69,23 @@ ORS61_NO_DIACRITIC['vowel'].update({
     'yoo': 'เอียว',
     'you': 'เอียว',
     'yuu': 'อีว'
+}
+
+ORS61_NO_DIACRITIC = deepcopy(ORS61)
+ORS61_NO_DIACRITIC['vowel'].update(NO_DIACRITIC)
+
+RI35 = deepcopy(ORS61)
+
+RI35['onset'].update({
+    'ch': ['ช', 'ช']
 })
+del RI35['vowel']['ai']
+RI35['vowel'].update({
+    'ya': 'เอียะ'
+})
+RI35['coda'].update({
+    's': 'ส'
+})
+
+RI35_NO_DIACRITIC = deepcopy(RI35)
+RI35_NO_DIACRITIC['vowel'].update(NO_DIACRITIC)

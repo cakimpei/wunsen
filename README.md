@@ -40,6 +40,11 @@ thap_ja_no_macron = ThapSap('ja', input='Hepburn-no diacritic')
 thap_ja_no_macron.thap('ohayou')
 # => 'โอฮาโย'
 
+# another transliteration system for Japanese
+thap_ja = ThapSap('ja', system='RI35')
+thap_ja.thap('ohayō')
+# => 'โอะฮะโย'
+
 # Korean
 thap_ko = ThapSap('ko')
 thap_ko.thap('annyeonghaseyo')
@@ -120,7 +125,7 @@ Wunsen doesn't apply 不 (bù) and 一 (yī) tone rules as they are difficult to
 
 #### Japanese long vowels
 
-Although we should transcribe two short vowels from different origins, that are next to each other, as two short vowels (not one long vowel), Wunsen cannot cover this case entirely.
+Although we should transcribe two short vowels from different origins, that are next to each other, as two short vowels (not one long vowel), Wunsen cannot cover this case reliably.
 
 ```python
 thap_ja.thap("公子 kōshi | 子牛 koushi | 石井 Ishii | ただいま tadaima")

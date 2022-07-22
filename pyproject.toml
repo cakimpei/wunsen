@@ -1,3 +1,24 @@
 [build-system]
-requires = ["setuptools>=42"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wunsen"
+version = "0.0.3"
+authors = [
+  { name="cakimpei", email="cakimpei@gmail.com" },
+]
+description = "Transliterate/transcribe from other languages into Thai"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = ["khanaa == 0.0.6"]
+
+[project.urls]
+"Homepage" = "https://github.com/cakimpei/wunsen"
+"Bug Tracker" = "https://github.com/cakimpei/wunsen/issues"

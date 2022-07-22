@@ -17,7 +17,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-dependencies = ["khanaa == 0.0.6"]
+dependencies = ["khanaa>=0.0.6"]
 
 [project.urls]
 "Homepage" = "https://github.com/cakimpei/wunsen"

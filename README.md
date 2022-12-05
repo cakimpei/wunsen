@@ -11,7 +11,7 @@ Currently support:
 - Mandarin (from Hanyu Pinyin)
 - Vietnamese (Latin script)
 
-Demo [here](https://wunsen.herokuapp.com/).
+Demo [here](https://wunsen.up.railway.app/).
 
 ## Installation
 
